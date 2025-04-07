@@ -1,6 +1,7 @@
 import { BsGraphUp } from "react-icons/bs";
 import { FaRegBookmark, FaRegUser } from "react-icons/fa6";
 import { LuSpeaker } from "react-icons/lu";
+import { Link, Route, Routes } from "react-router-dom";
 
 export default function AdminPage(){
   return(
@@ -10,22 +11,25 @@ export default function AdminPage(){
         <BsGraphUp />
           Dashboard
         </button>
-        <button className="w-full h-[40px] text-[25px] font-bold flex justify-center items-center ">
+        <Link to="/admin/bookings"  className="w-full h-[40px] text-[25px] font-bold flex justify-center items-center ">
         <FaRegBookmark />
           Bookings
-        </button>
-        <button className="w-full h-[40px] text-[25px] font-bold flex justify-center items-center">
+        </Link>
+        <Link to="/admin/items" className="w-full h-[40px] text-[25px] font-bold flex justify-center items-center">
           <LuSpeaker/>
           Items
-        </button>
+        </Link>
         <button className="w-full h-[40px] text-[25px] font-bold flex justify-center items-center">
         <FaRegUser />
           Users
         </button>
 
       </div>
-      <div className="w-full bg-red-900">
-      
+      <div className="w-[calc(100vw-400px)] bg-blue-900">
+      <Routes path="/*">
+         <Route path="/bookings" element={<h1>Booking</h1>}/>
+         <Route path="/items" element={<h1>Items</h1>}/>
+      </Routes>
       </div>
     </div>
   )  
